@@ -202,3 +202,198 @@ So a method is a type of function, but it's one that is associated with a class 
 
 In other words, we call any block of reusable code a function, whereas only some functions are also methods. All methods are functions but not all functions are methods.
 
+## Stack vs Heap
+
+Java uses two different memory regions when running an application: The stack and the heap.
+
+* The stack is used to store primitives and object references, while the heap is used to store the objects themselves.
+* Items in the stack get added and removed as a given method executes, while objects in the heap stay until the application is done (or at least, until there are no object references using them from anywhere in the program, at which point they are removed by the garbage collector).
+* Items are removed from the stack in a Last-In-First-Out (LIFO) order, meaning that the last element you added to the stack is the first that gets popped off the stack.
+* Remember that the items in a stack are only maintained as long as the related method is running. By the time a given method has finished running, all of the items on the stack for that method will have been removed.
+* Objects in the heap are accessible from anywhere in the program, while items on a given stack can only be accessed by the related method.
+
+## Access Modifiers
+
+When we are writing our code, we sometimes need to restrict access to certain data in the application in order to ensure it doesn't get modified in an unintended or harmful way.
+
+***Access modifiers determine how other classes are allowed to access your variables and methods.***
+
+### Classes, Subclasses, and Packages
+
+In order to explain access modifiers, we'll be talking about classes, subclasses, and the related idea of packages. We haven't defined or explained any of these terms yet, but we will go over them thoroughly in the next few lessons.
+For the moment, it is enough to think about classes and packages as ways of organizing your code. 
+
+### Types of Access Modifiers
+
+There are four types of access modifiers in Java:
+
+* ***Public*** means the class can be accessed from everywhere. If you have a method on a class that you want to expose to all other classes, then use this access modifier.
+* ***Private*** means only the defining class can access the data. This provides security, by not allowing other classes to change the data directly. Instead, they must make changes to the data via the provided methods only.
+* ***Protected*** means that access is restricted to the defining class, package, or subclass. This will be useful when we get into subclasses and inheritance in a later lesson, as it will allow our subclasses to use variables and methods from the parent class.
+* ***Default*** means access is restricted to the defining class or the package. This can be used when we have classes inside the same package that we may want to expose data and methods too.
+
+Here's a summary in a table format for your reference:
+
+![](./fig/access_mod.png)
+
+### Access Modifiers on Methods
+
+We can also apply access modifiers to methods. Here are some examples, just so you can see what they look like:
+
+----
+private void methodName()  
+void methodName()  // The default is no access modifier  
+protected void methodName()  
+public void methodName()  
+------
+
+### Access Modifiers on Variables
+
+And we can apply access modifiers to variables as well! We will get into this in detail in the lessons on object-oriented programming. Here are some examples—again, just so you can get the idea:
+
+-----------
+private int number;  
+int number3;  // Default is no access modifier  
+protected int number2;  
+public int number1;  
+----------
+
+## Arrays
+
+An array is a fixed-sized data structure that is used to store multiple values.
+
+### Creating an Array
+
+Here's an example of some code that creates an array of size four, containing four integer values:
+
+
+int [] numbers  = {1, 2, 3, 4};  
+
+Notice that creating an array involves three steps:
+
+* Declare the type of the array, using brackets (as in int []).
+* Name the array (in this example, the name is numbers).
+* Add values to the array.
+
+In this example, we are using an array literal to add the values, which simply means we are placing the values in a comma-separated list inside some curly braces, {1, 2, 3, 4}.
+
+### Accessing Array Elements
+
+We can access the elements in an array based on their numerical index. Let's revisit the above example:
+
+int [] numbers  = {1, 2, 3, 4};
+
+To access one of the numbers, we would type the name of the array, followed by brackets containing the index number of the item we want—as in numbers[1].
+
+Note that arrays start with an index of 0, not 1 (this is called zero-based indexing and is common in programming). So if we wanted to print the first item in the array, we would type:
+
+System.out.printLn(numbers[0]);
+
+### Another Way to Create an Array
+
+Here's another way we can create an array and add values to it:
+
+--------------
+int [] numbers = new int[4];  
+numbers[0] = 1;  
+numbers[1] = 2;  
+numbers[2] = 3;  
+numbers[3] = 4;  
+--------------
+
+This approach uses the new keyword to create a new array object of size 4, and then we assign values to the four spaces created in the array. This style will feel more normal to you after we have worked with classes and objects later in the course.
+
+## Loops
+
+In Java there are three different types of loops:
+
+* while loops
+* for loops
+* do while loops
+
+### while Loop
+
+The while loop continuously executes as long as a given condition is True. The syntax looks like this
+
+------------------
+while(condition){  
+        Execution block  
+}  
+------------------
+
+### for loop
+
+------------------
+for(initialization; condition; increment or decrement){  
+Execution block  
+}  
+------------------
+
+And here's a concrete example:
+
+------------------
+for(int i = 0; i < 5; i++){  
+System.out.println(i);  
+}  
+------------------
+
+### do while Loop
+
+------------------
+do {  
+Execution block  
+} while(condition);  
+------------------
+
+And here's a concrete example:
+
+------------------
+int i = 0;  
+do {  
+System.out.println(i);  
+i++;  
+} while(i < 5);  
+------------------
+
+The do while loop is very similar to the while loop. The key distinction is that the do while loop runs the loop once first before it checks the condition. This means that even if the condition is false right from the start, the code inside the loop will still get run once.
+
+## JavaDoc
+
+JavaDoc is a documentation generator that produces a searchable HTML document defining the classes and interfaces of an application. This makes it easy for you and other developers to understand the API of an application.
+
+### JavaDoc Comments
+
+The JavaDoc tool reads through Java files and parses certain parts of the code to automatically generate useful documentation. One part of the code that will be picked up by JavaDoc is a JavaDoc comment (or simply doc comment).
+
+JavaDoc comments are typically added:
+
+* At the top of a class, right before the class name
+* For each method in a class We'll get some practice with this when we start defining classes later in the course.
+
+### Syntax
+
+JavaDoc comments use a simple syntax that supports multi-line HTML format documentation. Here's what the syntax looks like:
+
+/** documentation */
+
+And here's an example:
+
+
+------------------
+/** This program HelloWorld produces a standard output  
+ *displaying "Hello World"  
+
+*@author The author of the class  
+*@see A reference to another class  
+  */
+------------------
+
+### Parts of a JavaDoc Comment
+
+Notice that JavaDoc comments are broken down into two parts:
+
+* The description
+* Block tags
+
+In the above example, the description is the first part of the comment, and the block tags are the last part (@author and @see).
+
