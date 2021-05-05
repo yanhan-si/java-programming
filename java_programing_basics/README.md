@@ -146,3 +146,59 @@ text.length();
 
 This second line would give us the length of the string "Hello there", which is 11 characters long.
 
+## Type Casting
+
+Type casting is changing one type into another type. There are two kinds of type casting: Automatic and manual.
+
+### Automatic Type Casting  
+
+Automatic type casting converts a smaller type into a larger type. For example:  
+
+int intNumber = 3;  
+double doubleNumber = intNumber;  
+System.out.println(doubleNumber);  
+
+When we print doubleNumber, the value will be 3.0. Notice that there is no precision lost going from a smaller type into a larger type. We started with 3 and ended up with 3.0.
+
+### Manual Type Casting
+
+Manual type casting is necessary when we want to do either of these things:
+
+* Convert a larger type into a smaller type
+* Convert one object type into another
+
+For example, here we are converting from a larger type (double) to a smaller type (int):
+
+double doubleNumber = 3.5;  
+int intNumber = (int)doubleNumber;  
+System.out.println(intNumber);  
+
+The resulting value will be 3, not 3.5. When we go from a larger type into a smaller type, precision is lost. Java cuts off additional data that will not fit in the casted type. So when we go from a double to an int, any values that are not integers will be removed. This is called truncation.
+
+## Truncation
+
+Truncation is a loss of precision when going from one to type to another. Basically, we are cutting off or "truncating" the additional data.
+
+Note that this is not the same thing as rounding. For example, if we round 3.9, we get 4.0. But if we truncate 3.9, we get simply 3! Truncation simply removes the additional data that will not fit, which is why it results in a loss of precision.
+
+## Methods
+
+Sometimes we have a block of code that we would like to re-use.
+
+### Method Syntax
+
+Methods have four parts:  
+* ***Name***. The name of the method, which we use when calling or invoking the method.
+*  ***Parameters***. The variables that we pass the values to when we call the method.
+* ***Method body***. The chunk of code, contained within curly braces, { }, that gets run when the method is invoked.
+* ***Return type***. The data type of the value that the method returns.
+
+### Methods vs Functions
+
+* A function is any block of reusable/callable code. *
+* A method is a block of reusable/callable code that is attached to a class or object.
+
+So a method is a type of function, but it's one that is associated with a class or object, whereas other functions can be executed from anywhere.
+
+In other words, we call any block of reusable code a function, whereas only some functions are also methods. All methods are functions but not all functions are methods.
+
