@@ -32,9 +32,26 @@ Suppose we want to write a program that will run on multiple operating systems, 
 
 As shown in the diagram below (on the left), C++ code has to be compiled separately for each operating system, requiring us to create compilers for Windows, Linux, and Mac. This is a lot of extra work.
 
-![](./fig/cplusplusvsjava)
+![](./fig/cplusplusvsjava.png)
 
 In contrast, the Java compiler compiles the software for the Java virtual machine (or JVM). The JVM is installed on the users computer and can be downloaded for free—in fact, most computers sold today already come with Java installed. This means we can compile the code once and then run it on every operating system. How does Java do this? Well, instead of compiling code directly into machine code, like C++, Java compiles the source code first into bytecode. Bytecode is a special language that the JVM can read and transform into machine language. This allows Java to run any Java program on any machine that has a JVM installed on it, regardless of the OS.
 
+## Checking Your Java Version
 
+***java --version***
  
+# When to Use Java
+
+In short, Java is especially well-suited for:
+
+* Business applications (client and server)
+* Web applications
+* Mobile applications on Android devices
+
+But remember, Java really is used for a huge variety of applications. It is a good choice when you need:
+
+* Scalability
+* Performance
+* Multi-threading
+* Memory management
+* Portability
