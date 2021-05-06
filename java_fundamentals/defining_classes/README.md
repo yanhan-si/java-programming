@@ -74,3 +74,7 @@ We define the class by:
 After writing our code, we are ready to test. To run the test, we create a Driver or Tester class. This is a class that has a main method. (Remember, the main method in Java is a special method and is the entry point to executing code.)
 
 This can all seem very abstract, so next we will walk through an exercise where you'll get some practice working with objects in Java.
+
+## Garbage Collection
+
+Every new object that we instantiate is added to the heap and consumes memory. In programming languages like C or C++, developers are responsible for creating and destroying objects. In contrast, Java has a background process called Garbage Collection (GC) that checks all instantiated objects, and destroys them if they do not have any references—thus freeing up memory, even without any active management on the part of the developer.
