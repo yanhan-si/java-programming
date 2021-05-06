@@ -42,10 +42,12 @@ int age = 42;
 Now when we type the word age in our code, it will refer to this location in memory.
 
 The reason we use the term "variable" is because it is able to vary. After we have declared it, we can easily change the value of the variable as many times as we like:
-
+```java
 int age = 42;  
 age = 43;  
 age = 44;  
+```
+
 
 These lines are referred to as assignment statements(because we are assigning the value on the right to the variable named on the left) and the = sign is called the assignment operator.
 
@@ -65,11 +67,11 @@ In contrast, some languages are dynamically typed. In dynamic ***typing***:
 
 Python is a popular example of a dynamically typed language. For example, in Python, you can declare a variable without explicitly stating the type:
 
-age = 42
+`age = 42`
 
 And you can later assign a value of a different type to that variable:
 
-age = "forty-two"
+`age = "forty-two"`
 
 And this will work—it will not throw a type error (as it would in Java), because the type is associated with the value, rather than being associated with the variable.
 
@@ -81,12 +83,15 @@ In contrast, one of the nice things about Java being statically typed is that yo
 
 Notice that Java ends every statement with a semicolon, ;. This is how Java knows it has reached the end of the statement. If we leave the semicolon off the ends of these lines:
 
+```java
 int age = 42  
 age = 43
+```
+
 
 Then Java will read them as a single line:
 
-int age = 42age = 43
+`int age = 42age = 43`
 
 And this would cause an error.
 
@@ -111,13 +116,13 @@ As you can see in the table, each primitive type has a memory size allocation, m
 
 The syntax for defining a primitive variable is simply an assignment statement like our example from earlier:
 
-int age = 42;
+`int age = 42;`
 
 Here, the integer 42 is a primitive value.
 
 To declare a variable for the long primitive, we would simply type something like:
 
-long agePlantEarth = 4005000000;
+`long agePlantEarth = 4005000000;`
 
 Notice that all of the keywords for primitives start with a lowercase letter.
 
@@ -129,11 +134,11 @@ Unlike primitive types, object types do not have a specific memory allocation si
 
 The syntax for declaring a String object variable looks like this:
 
-*String text = “Hello there”;*
+`String text = “Hello there”;`
 
 Or if we want to create an object variable for an integer, that looks like this:
 
-*Integer age = 42;*
+`Integer age = 42;`
 
 ![](./fig/object_type.png)
 
@@ -141,8 +146,11 @@ Notice that the keywords for creating object variables begin with an uppercase l
 
 Again, one of the benefits of creating an object is that it can include additional data and behavior. For example, String objects are bundled with a method called length that lets us get the length of the string. For example:
 
+```java
 String text = “Hello there”;  
 text.length();
+```
+
 
 This second line would give us the length of the string "Hello there", which is 11 characters long.
 
@@ -154,9 +162,12 @@ Type casting is changing one type into another type. There are two kinds of type
 
 Automatic type casting converts a smaller type into a larger type. For example:  
 
+```java
 int intNumber = 3;  
 double doubleNumber = intNumber;  
-System.out.println(doubleNumber);  
+System.out.println(doubleNumber); 
+```
+ 
 
 When we print doubleNumber, the value will be 3.0. Notice that there is no precision lost going from a smaller type into a larger type. We started with 3 and ended up with 3.0.
 
@@ -169,9 +180,12 @@ Manual type casting is necessary when we want to do either of these things:
 
 For example, here we are converting from a larger type (double) to a smaller type (int):
 
+```java
 double doubleNumber = 3.5;  
 int intNumber = (int)doubleNumber;  
-System.out.println(intNumber);  
+System.out.println(intNumber); 
+```
+ 
 
 The resulting value will be 3, not 3.5. When we go from a larger type into a smaller type, precision is lost. Java cuts off additional data that will not fit in the casted type. So when we go from a double to an int, any values that are not integers will be removed. This is called truncation.
 
@@ -240,23 +254,27 @@ Here's a summary in a table format for your reference:
 
 We can also apply access modifiers to methods. Here are some examples, just so you can see what they look like:
 
-----
+```java
 private void methodName()  
 void methodName()  // The default is no access modifier  
 protected void methodName()  
 public void methodName()  
-------
+```
+
+
 
 ### Access Modifiers on Variables
 
 And we can apply access modifiers to variables as well! We will get into this in detail in the lessons on object-oriented programming. Here are some examples—again, just so you can get the idea:
 
------------
+```java
 private int number;  
 int number3;  // Default is no access modifier  
 protected int number2;  
-public int number1;  
-----------
+public int number1; 
+```
+ 
+
 
 ## Arrays
 
@@ -267,7 +285,7 @@ An array is a fixed-sized data structure that is used to store multiple values.
 Here's an example of some code that creates an array of size four, containing four integer values:
 
 
-int [] numbers  = {1, 2, 3, 4};  
+`int [] numbers  = {1, 2, 3, 4};  `
 
 Notice that creating an array involves three steps:
 
@@ -281,25 +299,26 @@ In this example, we are using an array literal to add the values, which simply m
 
 We can access the elements in an array based on their numerical index. Let's revisit the above example:
 
-int [] numbers  = {1, 2, 3, 4};
+`int [] numbers  = {1, 2, 3, 4};`
 
 To access one of the numbers, we would type the name of the array, followed by brackets containing the index number of the item we want—as in numbers[1].
 
 Note that arrays start with an index of 0, not 1 (this is called zero-based indexing and is common in programming). So if we wanted to print the first item in the array, we would type:
 
-System.out.printLn(numbers[0]);
+`System.out.printLn(numbers[0]);`
 
 ### Another Way to Create an Array
 
 Here's another way we can create an array and add values to it:
 
---------------
+```java
 int [] numbers = new int[4];  
 numbers[0] = 1;  
 numbers[1] = 2;  
 numbers[2] = 3;  
 numbers[3] = 4;  
---------------
+```
+
 
 This approach uses the new keyword to create a new array object of size 4, and then we assign values to the four spaces created in the array. This style will feel more normal to you after we have worked with classes and objects later in the course.
 
@@ -315,45 +334,61 @@ In Java there are three different types of loops:
 
 The while loop continuously executes as long as a given condition is True. The syntax looks like this
 
-------------------
+```java
 while(condition){  
-        Execution block  
+    Execution block  
 }  
-------------------
+```
+Here's a concrete example:
+
+```java
+int i = 0;
+while(i < 5){
+  System.out.println(i);
+  i++;
+}
+```
 
 ### for loop
 
-------------------
+```java
 for(initialization; condition; increment or decrement){  
-Execution block  
+    Execution block  
 }  
-------------------
+```
+
+
 
 And here's a concrete example:
 
-------------------
+```java
 for(int i = 0; i < 5; i++){  
-System.out.println(i);  
+    System.out.println(i);  
 }  
-------------------
+```
+
+
 
 ### do while Loop
 
-------------------
+```java
 do {  
-Execution block  
+    Execution block  
 } while(condition);  
-------------------
+```
+
+
 
 And here's a concrete example:
 
-------------------
+```java
 int i = 0;  
 do {  
 System.out.println(i);  
 i++;  
-} while(i < 5);  
-------------------
+} while(i < 5); 
+```
+
 
 The do while loop is very similar to the while loop. The key distinction is that the do while loop runs the loop once first before it checks the condition. This means that even if the condition is false right from the start, the code inside the loop will still get run once.
 
@@ -379,14 +414,15 @@ JavaDoc comments use a simple syntax that supports multi-line HTML format docume
 And here's an example:
 
 
-------------------
+```java
 /** This program HelloWorld produces a standard output  
- *displaying "Hello World"  
+ * displaying "Hello World"  
+ *
+ *@author The author of the class  
+ *@see A reference to another class  
+ */
+```
 
-*@author The author of the class  
-*@see A reference to another class  
-  */
-------------------
 
 ### Parts of a JavaDoc Comment
 

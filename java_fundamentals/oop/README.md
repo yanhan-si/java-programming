@@ -48,8 +48,9 @@ If we wanted to get the speed of all the Car, Boat, and Plane objects, we can ea
 
 Here's what that would look like in code:
 
+```
 // Create an array of size 3 and type Vehicle  
-Vehicle [] vehicles = new Vehicle[3];  
+Vehicle [] vehicles = new Vehicle[3];
 
 // Instantiate three new objects and add them to the array.  
 // It looks like these are all different types (Car, Plane, and Boat),  
@@ -57,13 +58,15 @@ Vehicle [] vehicles = new Vehicle[3];
 // they get from their subclasses, they are also all Vehicle objects.  
 vehicles[0] = new Car();  
 vehicles[1] = new Plane();  
-vehicles[2] = new Boat();  
+vehicles[2] = new Boat();
 
 // Iterate over the array and print the speed  
 // of each of the Vehicle objects.  
 for (int i = 0; i < vehicles.length; i++) {  
 vehicles[i].speed();  
-}  
+}
+```
+
 
 ## Abstract Classes
 
