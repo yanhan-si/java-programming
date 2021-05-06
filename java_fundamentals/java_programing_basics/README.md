@@ -397,3 +397,14 @@ Notice that JavaDoc comments are broken down into two parts:
 
 In the above example, the description is the first part of the comment, and the block tags are the last part (@author and @see).
 
+## Lesson Review
+
+This lesson we covered all the major building blocks we need to create a simple Java app:
+
+* ***Keywords***. If we want to build an application in Java, we first must understand the basic vocabulary of the language. Java's keywords will provide us with that core, predefined words of the Java language.
+* ***Variables***. Variables provide us with a way to store data for our application. We'll learn how to use variables in Java and then we'll consider some key ways in which Java variables differ from those of other languages (such as Python).
+* ***Loops***. Loops allow us to iterate over data structures, executing the same code repeatedly until a condition is met, making it possible to process large data structures with only a few lines of code.
+* ***Methods***. The central idea behind methods is that we want to write a block of code once that we we can then re-use many times.
+* ***Access Modifiers***. We learned how to use access modifiers to restrict access to variables and methods, so that users of our applications cannot access all of the data directly and in an unsafe manner.
+*  ***Javadoc***. How do we know how to communicate with an existing Java application? Or, once we create our own application, how do we share it with others? JavaDoc produces a searchable HTML document that defines the classes and interfaces of an application, making it easy for you or any developer to understand how to use the code.
+*  ***Arrays***. Arrays provide us with a way to easily and efficiently store and retrieve collections of data, such as a list of phone numbers.
