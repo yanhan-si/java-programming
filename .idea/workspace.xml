@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84e46c5b-88c8-4902-89c2-a2c3fa58d1d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java_Programming.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java_fundamentals/java_programing_basics/JavaDocProject/JavaDocProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/java_programming.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Introduction_to_Java/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Introduction_to_Java/fig/cplusplusvsjava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java+Programming+Nanodegree+Program+Syllabus.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/GettingStarted.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/Arrays.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/GettingStarted.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/Loops.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/Methods1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/Methods2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/exercise/ex_start.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/fig/access_mod.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/fig/java_kw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/fig/object_type.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_programing_basics/fig/primitive_type.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jpnd-c1-java-fundamentals-glossary.pdf" beforeDir="false" />
-    </list>
+    <list default="true" id="84e46c5b-88c8-4902-89c2-a2c3fa58d1d9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,5 +45,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
