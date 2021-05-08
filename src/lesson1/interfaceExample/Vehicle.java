@@ -6,7 +6,5 @@ public interface Vehicle {
     public String getSpeed();
 
     public String getColor();
-
 }
 
-}
