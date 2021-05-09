@@ -1,4 +1,4 @@
-package lesson1.creating_classes;
+package lesson1.creatingClasses;
 
 public class Student extends Person{
     private String studentId;
