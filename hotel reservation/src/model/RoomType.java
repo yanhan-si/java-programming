@@ -1,5 +1,5 @@
 package model;
 
 public enum RoomType {
-    SINGLE, DOUBLE;
+    Single, Double;
 }
