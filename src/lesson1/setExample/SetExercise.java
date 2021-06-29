@@ -1,6 +1,8 @@
 package lesson1.setExample;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SetExercise {
     public static void main(String[] args) {
@@ -24,7 +26,24 @@ public class SetExercise {
         Set<String> uniqueNumbers = new HashSet<String>(numbers);
 
         for (String number : uniqueNumbers) {
-            System.out.println(number);
+           // System.out.println(number);
         }
+
+        int[] nums = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        for (int j=0; j < nums.length; j++) {
+            System.out.println(nums[j]);
+        }
+
+        Date date = new Date();
+        System.out.println(date);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        System.out.println(calendar.getTime());
+
+        String  emailRegex = "^(.+)@(.+).(.+)$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher("jeff@umich.edu");
+        System.out.println(matcher.matches());
     }
 }

@@ -312,3 +312,195 @@ public final class ReadFilesMain {
 }
 ```
 
+### Edge Case: Capturing Variables
+
+Lambdas can *capture* variables from the surrounding code.
+If a lambda uses any variables from the surrounding code,
+those variables are *captured*.
+Variables can only be captured if they are *effectively final*.
+
+An **effectively final** variable is a variable whose value does not change after it is initialized.
+
+#### Example
+
+```java
+Map<Year, Integer> getClassSizes(List<Student> students) {
+  final Map<Year, Integer> classSizes = new HashMap<>();
+  students.stream().forEach(s ->
+      classSizes.compute(
+          s.getGraduationYear(),
+          (k, v) -> (v == null) ? 1 : 1 + v));
+  return classSizes;
+}
+```
+
+A good test to figure out if a variable is effectively final is to add the `final` keyword to it.
+If the code still compiles, that variable is effectively final!
+
+In the example, the `classSizes` variable is effectively final
+because the value of the variable itself does not change after it's initialized. Remember that in Java, objects are passed by reference. Even though the
+`HashMap` changes, the variable's value is the `HashMap`'s location in memory, and that location never changes.
+
+
+### Method References
+
+In this section, you will learn to identify when to use method references instead of lambdas.
+
+#### What is a Method Reference?
+
+A **method reference** is a short lambda expression that refers to a method that is already named.
+
+If a method with the right parameters and return values is already defined, you can use that instead of writing a new lambda. If this sounds confusing, don't worry — the next code demo should demonstrate how simple method references are to use.
+
+#### When to Use Method References
+
+Generally speaking, if a method is already defined that you can use, you should use a method reference instead of writing a brand new lambda. It's usually a good idea in software development to not write new code if there's already existing code that does the same thing you're trying to do!
+
+Method references cannot capture surrounding variables, though. If you find yourself in this situation, you should use a custom lambda instead.
+
+#### Example
+
+We can take the original lambda expression demo and simplify it using a method reference to 
+`String::isBlank`
+
+```java
+import java.util.List;
+import java.util.function.Predicate;
+
+public final class LambdasMain {
+
+  /**
+   * Returns the number of strings that match a given condition.
+   *
+   * @param input the strings that should be tested.
+   * @param condition the condition that strings should be tested against.
+   * @return the number of strings in the input that match the condition.
+   */
+  public static long countMatchingStrings(List<String> input, Predicate<String> condition) {
+    return input.stream().filter(condition).count();
+  }
+
+  public static void main(String[] args) {
+
+    List<String> input = List.of("hello", "\t   ", "world", "", "\t", " ", "goodbye", "  ");
+
+    long numberOfWhitespaceStrings = countMatchingStrings(input, String::isBlank);
+
+    System.out.println(numberOfWhitespaceStrings + " whitespace strings");
+  }
+}
+```
+
+### The Stream API
+
+#### What is a Stream?
+
+A **stream** is a sequence of elements.
+
+Streams are useful because they allow us to process collection, one element at a time. They can process elements in many ways, such as (but not limited to) filtering or transforming elements, sorting elements, or computing statistics such as the sum or average.
+
+#### Stream Pipelines
+
+![](../fig/stream.png)
+
+A stream pipeline consists of creating a stream, calling intermediate operations on the stream, and then terminating the stream using a terminal operation.
+
+* Streams are *single-use*. Once you do an operation on a `Stream`,
+  you cannot to any more operations on that same stream. This means intermediate operations always return a brand new
+  `Stream`, never the original.
+  
+* Streams are *lazily evaluated*. No computation happens until the very end, when the terminal operation is called.
+
+#### Example
+
+```java
+void printScores(List<Student> students) {
+ return students.stream()
+     .filter(Objects::nonNull)
+     .mapToInt(Student::getScore)
+     .forEach(System.out::println);
+}
+```
+
+First, the `stream()` method creates a stream from the students list.
+This stream pipeline has two intermediate methods:
+the `filter()` method removes the elements of the stream that are `null`
+, and `mapToInt()` transforms each student into an `int`.
+Notice that each of these methods returns another `Stream`:
+`filter()` returns a `Stream<Student>`,and `mapToInt()` returns an `IntStream`.
+
+Finally, the terminal operation `max()` computes the maximum value in the `IntStream`.
+This terminal method actually returns an `OptionalInt` instead of an `int`.
+If the `students` parameter is empty or contains only `null` elements
+, it's possible the final stream will be empty. In this case, we need 
+to tell the program to return a default value of `0`.
+
+### Stream API: Collectors
+
+#### What is a Collector?
+
+A `Collector` is a terminal stream operation that accumulates stream elements into a container.
+
+#### `Collector` Code Examples
+
+The `collect()` method is a terminal operation that aggregates streams of elements. Collectors can be passed to `collect()` to determine what kind of collection is created.
+
+```java
+Set<String> s = stringList.stream().collect(Collectors.toSet());
+```
+
+Here, the collector aggregates the elements into a `Set`. There are collectors for all the common data structures such as lists, sets, and maps.
+
+Collectors can be used to perform reduction operations such as adding or counting.
+
+```java
+Map<Year, Long> graduatingClassSizes = studentList.stream()
+    .collect(Collectors.groupingBy(
+        Student::getGraduationYear, Collectors.counting());
+```
+
+Here, `groupingBy()` is used to collect elements into a `Map`.
+`Collectors.counting()` counts the number of values for each key,
+so, in this example, it will count how many students there are for each graduation year.
+
+### Optional Type
+
+#### What is an Optional Type?
+
+* `java.util.Optional` is a container object that may or may not contain a single, non-null value.
+*  Optional is an ***alternative*** to using null to represent the absence of a value.
+
+#### Optional Type Example
+
+Optional Types are often returned by terminal operations on streams.
+
+```java
+int getTopScore(List<Student> students) {
+ return students.stream()
+     .filter(Objects::nonNull)
+     .mapToInt(Student::getScore)
+     .max()
+     .orElse(0);
+}
+```
+
+Here, the `max()` method actually returns an `OptionalInt`,
+not an `int`.
+If the `students` list is empty, the `max()` method will return an empty optional.
+
+If `max()` returns an `OptionalInt` with a value, that value will be used.
+However, if `max()` returns `OptionalInt.empty()`,
+the call to `orElse()` makes sure that a default value of `0` will be returned.
+
+This example also shows you how, in addition to `Optional<T>`,
+Java also has optional types that are specialized for `int`, `long`, and `double` primitives.
+These classes avoid the need for auto-boxing and auto-unboxing of their values.
+
+#### When to Use Optional Types
+
+When you're designing Java APIs, you should consider using `Optional` instead of `null` to represent the absence of values.
+
+`Optional` can have methods invoked on it without throwing `NullPointerException`. The Stream API uses optional types for many of its terminal operations.
+
+However, optionals can sometimes lead to more verbose code by forcing you to call `.get()` whenever you want the value.
+
